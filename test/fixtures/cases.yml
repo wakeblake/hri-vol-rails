@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  legal_server_case_id: 1
+  attorney: one
+  client: one
+
+two:
+  legal_server_case_id: 1
+  attorney: two
+  client: two

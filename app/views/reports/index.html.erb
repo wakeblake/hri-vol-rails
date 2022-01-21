@@ -1,0 +1,26 @@
+<h1>Report Your Hours</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Client</th>
+            <th>Organization</th>
+            <th>Attorney</th>
+            <th>Hours spent on case</th>
+            <th>Billing rate (hr)</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @reports.each do |report| %>
+            <tr>
+                <td><%= report.case.client.name %></td>
+                <td><%= report.case.attorney.firm %></td>
+                <td><%= report.case.attorney.name %></td>
+                <td><%= report.hours_volunteered %></td>
+                <td><%= report.case.client.name %></td>
+                <!-- links to show, edit, destroy -->
+            </tr>
+        <% end %>
+    </tbody>
+</table>
