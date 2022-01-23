@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :clients
   resources :reports
 
-  root "reports#index"
+  root "cases#index"
 end

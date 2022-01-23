@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_20_215316) do
+ActiveRecord::Schema.define(version: 2022_01_22_060002) do
 
   create_table "attorneys", force: :cascade do |t|
     t.string "firm"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2022_01_20_215316) do
     t.integer "legal_server_case_id"
     t.integer "attorney_id", null: false
     t.integer "client_id", null: false
-    t.integer "report_id", null: false
+    t.integer "report_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["attorney_id"], name: "index_cases_on_attorney_id"
@@ -50,14 +50,10 @@ ActiveRecord::Schema.define(version: 2022_01_20_215316) do
   create_table "reports", force: :cascade do |t|
     t.decimal "hours_volunteered"
     t.date "fiscal_year"
-    t.integer "client_id", null: false
-    t.integer "attorney_id", null: false
     t.integer "case_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["attorney_id"], name: "index_reports_on_attorney_id"
     t.index ["case_id"], name: "index_reports_on_case_id"
-    t.index ["client_id"], name: "index_reports_on_client_id"
   end
 
   add_foreign_key "attorneys", "cases"
@@ -67,7 +63,5 @@ ActiveRecord::Schema.define(version: 2022_01_20_215316) do
   add_foreign_key "cases", "reports"
   add_foreign_key "clients", "attorneys"
   add_foreign_key "clients", "cases"
-  add_foreign_key "reports", "attorneys"
   add_foreign_key "reports", "cases"
-  add_foreign_key "reports", "clients"
 end
