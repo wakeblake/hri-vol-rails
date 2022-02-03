@@ -1,0 +1,41 @@
+<%= form_with model: local_assigns[:case], class: "divTableRow" do |form| %>
+
+    <div class="divTableCell">
+        <%= form.fields_for :client do |f| %>
+            <%= form.label :clientname %>
+            <%= form.text_field :clientname, value: local_assigns[:cn] %>
+        <% end %>
+    </div>
+
+    <div class="divTableCell">
+        <%= form.fields_for :attorney do |f| %>
+            <%= f.label :firm %>
+            <%= f.text_field :firm, value: local_assigns[:f] %>
+        <% end %>
+    </div>
+
+    <div class="divTableCell">
+        <%= form.fields_for :attorney do |f| %>
+            <%= f.label :name %>
+            <%= f.text_field :name, value: local_assigns[:an] %>
+        <% end %>
+    </div>
+
+    <div class="divTableCell">
+        <%= form.fields_for :report do |f| %>
+            <%= f.label :hours_volunteered %>
+            <%= f.number_field :hours_volunteered, step: 0.1, value: local_assigns[:hv] %>
+        <% end %>
+    </div>
+
+    <div class="divTableCell">
+        <%= form.fields_for :attorney do |f| %>
+            <%= f.label :bill_rate_hr %>
+            <%= f.number_field :bill_rate_hr, step: 0.1, value: local_assigns[:br] %>
+        <% end %>
+    </div>
+
+    <div class="divTableCell">    
+        <%= form.submit %>
+    </div>
+<% end %>

@@ -42,6 +42,12 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+# Added to try to get AJAX to work...
+gem "responders", ">= 2.0"
+
+# Added to try to get AJAX to work...
+gem "jquery-rails"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
