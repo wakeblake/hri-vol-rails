@@ -1,41 +1,41 @@
 <%= form_with model: local_assigns[:case], class: "divTableRow" do |form| %>
 
+    <div class="divTableCell" data-controller="hello">
+        <%= link_to "Edit", "#", "data-action": "hello#onEdit", id: dom_id(local_assigns[:case]) %>
+          <!-- links to show, edit, destroy -->
+    </div>
+
     <div class="divTableCell">
         <%= form.fields_for :client do |f| %>
-            <%= form.label :clientname %>
-            <%= form.text_field :clientname, value: local_assigns[:cn] %>
+            <%= f.label :clientname, local_assigns[:cn].titleize %>
         <% end %>
     </div>
 
     <div class="divTableCell">
         <%= form.fields_for :attorney do |f| %>
-            <%= f.label :firm %>
-            <%= f.text_field :firm, value: local_assigns[:f] %>
+            <%= f.label :name, local_assigns[:an].titleize %>
         <% end %>
     </div>
 
     <div class="divTableCell">
         <%= form.fields_for :attorney do |f| %>
-            <%= f.label :name %>
-            <%= f.text_field :name, value: local_assigns[:an] %>
+            <%= f.text_field :firm, value: local_assigns[:f], readonly: true, id: dom_id(local_assigns[:case]) + '_e' %>
         <% end %>
     </div>
 
     <div class="divTableCell">
         <%= form.fields_for :report do |f| %>
-            <%= f.label :hours_volunteered %>
-            <%= f.number_field :hours_volunteered, step: 0.1, value: local_assigns[:hv] %>
+            <%= f.number_field :hours_volunteered, step: 0.1, value: local_assigns[:hv], readonly: true, id: dom_id(local_assigns[:case]) + '_e' %>
         <% end %>
     </div>
 
     <div class="divTableCell">
         <%= form.fields_for :attorney do |f| %>
-            <%= f.label :bill_rate_hr %>
-            <%= f.number_field :bill_rate_hr, step: 0.1, value: local_assigns[:br] %>
+            <%= f.number_field :bill_rate_hr, step: 0.1, value: local_assigns[:br], readonly: true, id: dom_id(local_assigns[:case]) + '_e' %>
         <% end %>
     </div>
 
     <div class="divTableCell">    
-        <%= form.submit %>
+        <%= form.submit "Save", disabled: true, id: dom_id(local_assigns[:case]) + '_e' %>
     </div>
 <% end %>

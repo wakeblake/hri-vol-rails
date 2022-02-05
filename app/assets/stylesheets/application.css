@@ -23,10 +23,10 @@
   }
   .divTable.paleBlueRows .divTableCell, .divTable.paleBlueRows .divTableHead {
     border: 1px solid #FFFFFF;
-    padding: 3px 2px;
+    padding: 10px 30px;
   }
   .divTable.paleBlueRows .divTableBody .divTableCell {
-    font-size: 13px;
+    font-size: 14px;
   }
   .divTable.paleBlueRows .divTableRow:nth-child(even) {
     background: #D0E4F5;

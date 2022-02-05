@@ -18,9 +18,7 @@ class CasesController < ApplicationController
 
     def update
         @case = Case.find(params[:id])
-
         if @case.update(case_params)
-            #@case.reload
             redirect_to root_path
         else
             render "Oops"
@@ -29,11 +27,11 @@ class CasesController < ApplicationController
 
     private
     def case_params
-        params.require(:case).permit(:case[
-            :client_attributes[:id, :clientname],
-            :attorney_attributes[:id, :firm, :name, :bill_rate_hr], 
-            :report_attributes[:id, :hours_volunteered]
-        ])
+        params.require(:case).permit(
+            client_attributes: [:id, :clientname],
+            attorney_attributes: [:id, :firm, :name, :bill_rate_hr], 
+            report_attributes: [:id, :hours_volunteered]
+        )
     end
 end
 
