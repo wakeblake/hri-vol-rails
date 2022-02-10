@@ -1,7 +1,7 @@
 <%= form_with model: local_assigns[:case], class: "divTableRow" do |form| %>
 
-    <div class="divTableCell" data-controller="hello">
-        <%= link_to "Edit", "#", "data-action": "hello#onEdit", id: dom_id(local_assigns[:case]) %>
+    <div class="divTableCell" data-controller="main">
+        <%= link_to "Edit", "#", "data-action": "main#onEdit", id: dom_id(local_assigns[:case]) %>
           <!-- links to show, edit, destroy -->
     </div>
 

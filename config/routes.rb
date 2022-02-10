@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :cases
   resources :clients
   resources :reports
+  resources :users
 
+  get "signup" => "users#new"
   root "cases#index"
 end
  
