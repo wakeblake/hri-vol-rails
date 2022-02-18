@@ -8,4 +8,14 @@ class ApplicationController < ActionController::Base
     def require_user
         redirect_to '/login' unless current_user
     end
+
+    # TODO redirect to attorney case page?
+    def require_manager
+        redirect_to '/' unless current_user.manager?
+    end
+
+    # TODO what here?
+    def require_admin
+        redirect to '/' unless current_user.admin?
+    end
 end

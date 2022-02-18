@@ -2,7 +2,13 @@
 
     <div class="divTableCell" data-controller="main">
         <%= link_to "Edit", "#", "data-action": "main#onEdit", id: dom_id(local_assigns[:case]) %>
-          <!-- links to show, edit, destroy -->
+        <br><br>
+
+        <!-- TODO check if this works-->
+        <% if current_user && current_user.admin? %>
+            <%= link_to "Delete", case_path(local_assigns[:case]), method: "delete", id: dom_id(local_assigns[:case]) %>
+        <% end %>
+
     </div>
 
     <div class="divTableCell">

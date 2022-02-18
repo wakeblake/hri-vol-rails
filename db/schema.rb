@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_10_001644) do
+ActiveRecord::Schema.define(version: 2022_02_18_134853) do
 
   create_table "attorneys", force: :cascade do |t|
     t.string "firm"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2022_02_10_001644) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
+    t.string "role"
   end
 
   add_foreign_key "attorneys", "cases"
