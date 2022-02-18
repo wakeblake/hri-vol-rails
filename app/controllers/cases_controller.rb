@@ -1,8 +1,10 @@
 class CasesController < ApplicationController
     
     # TODO make sure loading JS into edit template is secure
-    #protect_from_forgery except: :edit
-    #http_basic_authenticate_with name: "blake", password: "secret"
+    # protect_from_forgery except: :edit
+    # http_basic_authenticate_with name: "blake", password: "secret"
+
+    before_action :require_user, only: [:index]
 
     def index
         @cases = Case.all
