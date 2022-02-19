@@ -13,13 +13,14 @@
   <body>
     <% if current_user %>
       <ul>
-        <li><%= current_user.email %></li>
+        <li>Welcome, <%= current_user.email %>!</li>
         <li><%= link_to "Log out", logout_path, method: "delete" %></li>
       </ul>
     <% else %>
+      <h1>Welcome to the Human Rights International pro bono reporting tool!</h1>
       <ul>
-        <li><%= link_to "Log in", 'login' %></li>
-        <li><%= link_to "Sign up", 'signup' %></li>
+        <!--<li><%= link_to "Log in", 'login' %></li>-->
+        <li>First time visiting?  <%= link_to "Sign up", 'signup' %></li>
       </ul>
     <% end %>
     <%= yield %>

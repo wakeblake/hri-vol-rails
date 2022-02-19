@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  default_url_options host: "http://127.0.0.1:3000/"
+  
   resources :attorneys
   resources :cases
   resources :clients
   resources :reports
-  resources :users
+
+  resources :users do
+    member do
+      get :confirm_email
+    end
+  end
+
   resources :sessions
 
   get "signup" => "users#new"
@@ -12,6 +20,6 @@ Rails.application.routes.draw do
   post "login" => "sessions#create"
   get "logout" => "sessions#destroy"
 
-  root "cases#index"
+  root "sessions#new"
 end
  

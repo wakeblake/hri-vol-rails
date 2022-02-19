@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_18_134853) do
+ActiveRecord::Schema.define(version: 2022_02_19_033045) do
 
   create_table "attorneys", force: :cascade do |t|
     t.string "firm"
@@ -64,6 +64,8 @@ ActiveRecord::Schema.define(version: 2022_02_18_134853) do
     t.string "first_name"
     t.string "last_name"
     t.string "role"
+    t.boolean "email_confirmed", default: false
+    t.string "confirm_token"
   end
 
   add_foreign_key "attorneys", "cases"
