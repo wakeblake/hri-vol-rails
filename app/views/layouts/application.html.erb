@@ -11,6 +11,13 @@
   </head>
 
   <body>
+
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    
     <% if current_user %>
       <ul>
         <li>Welcome, <%= current_user.email %>!</li>
@@ -20,7 +27,7 @@
       <h1>Welcome to the Human Rights International pro bono reporting tool!</h1>
       <ul>
         <!--<li><%= link_to "Log in", 'login' %></li>-->
-        <li>First time visiting?  <%= link_to "Sign up", 'signup' %></li>
+        <!--<li>First time visiting?  <%= link_to "Sign up", 'signup' %></li>-->
       </ul>
     <% end %>
     <%= yield %>

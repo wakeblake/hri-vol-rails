@@ -48,6 +48,9 @@ gem "responders", ">= 2.0"
 # Added to try to get AJAX to work...
 gem "jquery-rails"
 
+# Added to try to make Action Mailer work for gmail...
+gem "mail_form"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

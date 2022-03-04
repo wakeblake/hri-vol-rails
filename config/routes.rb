@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :cases
   resources :clients
   resources :reports
+  resources :users
 
-  resources :users do
+  resources :users, param: :confirm_token do
     member do
       get :confirm_email
     end

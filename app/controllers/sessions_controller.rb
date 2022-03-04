@@ -7,13 +7,13 @@ class SessionsController < ApplicationController
         if @user && @user.authenticate(params[:session][:password])
             if @user.email_confirmed
                 session[:user_id] = @user.id
-                redirect_to '/cases'
+                redirect_to '/cases'          # TODO is this right?
             else
-                flash.now[:error] = "To proceed please activate your account by following the instructions in the confiration email sent to you"
+                flash.now[:alert] = "To proceed please activate your account by following the instructions in the confirmation email sent to you."
                 redirect_to '/' # ?????
             end
         else
-            flash.now[:error] = "Invalid email/password combination"
+            flash.now[:alert] = "Invalid email/password combination"
             redirect_to '/'
         end
     end
