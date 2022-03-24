@@ -28,6 +28,11 @@ class CasesController < ApplicationController
         end
     end
 
+    def import
+        Case.import(params[:file])
+        redirect_to root_path, notice: "Data imported"
+    end
+
     private
     def case_params
         params.require(:case).permit(

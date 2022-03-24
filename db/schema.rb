@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_19_033045) do
+ActiveRecord::Schema.define(version: 2022_03_09_152228) do
 
   create_table "attorneys", force: :cascade do |t|
     t.string "firm"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2022_02_19_033045) do
   end
 
   create_table "cases", force: :cascade do |t|
-    t.integer "legal_server_case_id"
+    t.string "legal_server_case_id"
     t.integer "attorney_id", null: false
     t.integer "client_id", null: false
     t.integer "report_id"
