@@ -3,11 +3,15 @@ Rails.application.routes.draw do
   default_url_options host: "http://127.0.0.1:3000/"
   
   resources :attorneys
-  resources :cases
   resources :clients
   resources :reports
-  resources :users
 
+  resources :cases
+  resources :cases do 
+    collection { post :import }
+  end
+  
+  resources :users
   resources :users, param: :confirm_token do
     member do
       get :confirm_email

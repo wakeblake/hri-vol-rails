@@ -30,7 +30,7 @@ class CasesController < ApplicationController
 
     def import
         Case.import(params[:file])
-        redirect_to root_path, notice: "Data imported"
+        redirect_to "/cases", notice: "Data imported"
     end
 
     private

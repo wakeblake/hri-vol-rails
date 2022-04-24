@@ -37,7 +37,22 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+
+  # https://guides.rubyonrails.org/action_mailer_basics.html >> 5.1 & 5.2
+  config.action_mailer.default_url_options = { host: 'http://127.0.0.1:3000' } # Redundant in routes?
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    #domain:               'gmail.com',  #If you need to specify a HELO domain, you can do it here.
+    user_name:            'blake.holleman@gmail.com', # TODO obfuscate
+    password:             'gligaeyhchmnktwn', # App Password, see https://support.google.com/accounts/answer/185833?hl=en  # TODO obfuscate
+    authentication:       'plain',
+    enable_starttls_auto: true,
+    open_timeout:         5,
+    read_timeout:         5
+  }
 
   config.action_mailer.perform_caching = false
 

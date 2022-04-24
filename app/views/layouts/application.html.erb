@@ -23,6 +23,15 @@
         <li>Welcome, <%= current_user.email %>!</li>
         <li><%= link_to "Log out", logout_path, method: "delete" %></li>
       </ul>
+      
+      <% if current_user.role == 'admin' %>
+        <h4>Import new case data</h4>
+        <%= form_tag import_cases_path, multipart: true do %>
+          <%= file_field_tag :file %>
+          <%= submit_tag "Import CSV" %>
+        <% end %>
+      <% end %>
+
     <% else %>
       <h1>Welcome to the Human Rights International pro bono reporting tool!</h1>
       <ul>
@@ -30,6 +39,8 @@
         <!--<li>First time visiting?  <%= link_to "Sign up", 'signup' %></li>-->
       </ul>
     <% end %>
+
     <%= yield %>
+
   </body>
 </html>
