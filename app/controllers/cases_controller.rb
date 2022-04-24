@@ -28,6 +28,7 @@ class CasesController < ApplicationController
         end
     end
 
+    # TODO issue here with redirecting to cases when no case has hours_reported?
     def import
         Case.import(params[:file])
         redirect_to "/cases", notice: "Data imported"
